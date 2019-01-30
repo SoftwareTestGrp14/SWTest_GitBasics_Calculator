@@ -58,7 +58,6 @@ namespace Calculator.Unit.Test
             Assert.That(_uut.Multiply(a, b), Is.EqualTo(result));
         }
 
-        diler
         [TestCase(2, 3, 8)]
         [TestCase(2, -3, 0.125)]
         [TestCase(-2, -3, -0.125)]
@@ -80,6 +79,19 @@ namespace Calculator.Unit.Test
 
             Assert.That(_uut.Accumulator, Is.EqualTo(4));
 
+        }
+        [TestCase(8, 2, 4)]
+        [TestCase(10, 2, 5)]
+        [TestCase(28, 0.5, 56)]
+        [TestCase(9, 3, 3)]
+        public void Divide_DivideAWithB_ResultIsCorrect(double dividend, double divisor, double result)
+        {
+            Assert.That(_uut.Divide(dividend, divisor), Is.EqualTo(result));
+        }
+
+        public void Divide_DivideWithZero_ThrowExecption(double dividend, double divisor, double result)
+        {
+            Assert.That(_uut.Divide(dividend, divisor), Is.EqualTo(result));
         }
     }
 }

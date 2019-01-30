@@ -28,46 +28,65 @@ namespace Calculator
 
         public double Add(double a, double b)
         {
-
-            return a + b;
+            Accumulator = a + b;
+            return Accumulator;
         }
 
         public double Subtract(double a, double b)
         {
-            return a - b;
+            Accumulator = a - b;
+            return Accumulator;
         }
 
         public double Multiply(double a, double b)
         {
-
-            return a * b;
+            Accumulator = a * b;
+            return Accumulator;
         }
 
         public double Multiply(double a)
         {
-
-            return ;
+            Accumulator *= a;
+            return Accumulator;
         }
 
         public double Divide(double a)
         {
-
-            return a * b;
+            Accumulator /= a;
+            return Accumulator;
         }
 
         public double Power(double x, double exp)
         {
-            return Math.Pow(x, exp);
+            Accumulator= Math.Pow(x, exp);
+            return Accumulator;
         }
         public double Add(double addend)
         {
-            return Accumulator + addend;
+            Accumulator += addend;
+            return Accumulator;
         }
 
         public double Subtract(double subtractor)
         {
-            return Accumulator - subtractor;
+            Accumulator -= subtractor;
+            return Accumulator;
         }
 
+        public double Power(double exponent)
+        {
+            Accumulator = Math.Pow(Accumulator, exponent);
+            return Accumulator;
+        }
+
+        public double Divide(double dividend, double divisor)
+        {
+            if (divisor == 0)
+            {
+                throw new DivideByZeroException();
+            }
+
+            return dividend / divisor;
+        }
     }
 }
