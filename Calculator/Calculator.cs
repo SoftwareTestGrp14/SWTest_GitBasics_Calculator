@@ -41,13 +41,13 @@ namespace Calculator
         public double Multiply(double a)
         {
 
-            return ;
+            return Accumulator * a;
         }
 
         public double Divide(double a)
         {
 
-            return a * b;
+            return Accumulator / a;
         }
 
         public double Power(double x, double exp)
