@@ -13,7 +13,7 @@ namespace Calculator
 
         public Calculator()
         {
-            pølse;
+            
         }
 
         public double Add(double a, double b)
@@ -33,10 +33,21 @@ namespace Calculator
             return a * b;
         }
 
+        public double Multiply(double a)
+        {
+
+            return ;
+        }
+
+        public double Divide(double a)
+        {
+
+            return a * b;
+        }
+
         public double Power(double x, double exp)
         {
             return Math.Pow(x, exp);
         }
-
     }
 }
