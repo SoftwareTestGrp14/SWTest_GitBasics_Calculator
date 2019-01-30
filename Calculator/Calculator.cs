@@ -38,5 +38,10 @@ namespace Calculator
             return Math.Pow(x, exp);
         }
 
+
+        public double Add(double addend)
+        {
+            return 
+        }
     }
 }
