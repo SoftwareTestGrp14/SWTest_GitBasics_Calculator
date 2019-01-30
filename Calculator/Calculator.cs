@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -45,6 +46,17 @@ namespace Calculator
         public double Power(double x, double exp)
         {
             return Math.Pow(x, exp);
+        }
+
+
+        public double Add(double addend)
+        {
+            return Accumulator + addend;
+        }
+
+        public double Subtract(double subtractor)
+        {
+            return Accumulator - subtractor;
         }
 
     }
