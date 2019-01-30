@@ -54,5 +54,10 @@ namespace Calculator
             return Accumulator - subtractor;
         }
 
+        public double Power(double exponent)
+        {
+            return Math.Pow(Accumulator, exponent);
+        }
+
     }
 }
