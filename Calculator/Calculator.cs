@@ -11,6 +11,10 @@ namespace Calculator
     public class Calculator
     {
 
+        public double Accumulator { get; private set; }
+
+
+
         public Calculator()
         {
             
