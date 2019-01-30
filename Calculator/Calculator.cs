@@ -35,7 +35,7 @@ namespace Calculator
 
         public double Power(double x, double exp)
         {
-            return Math.Pow(x, exp); ;
+            return Math.Pow(x, exp);
         }
 
     }
