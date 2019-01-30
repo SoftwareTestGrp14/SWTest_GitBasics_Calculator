@@ -80,6 +80,10 @@ namespace Calculator.Unit.Test
             Assert.That(_uut.Divide(dividend, divisor), Is.EqualTo(result));
         }
 
+        public void Divide_DivideWithZero_ThrowExecption(double dividend, double divisor, double result)
+        {
+            Assert.That(_uut.Divide(dividend, divisor), Is.EqualTo(result));
+        }
     }
 }
 
