@@ -18,7 +18,12 @@ namespace Calculator
 
         public Calculator()
         {
-            
+            Accumulator = 0.00;
+        }
+
+        public void Clear()
+        {
+            Accumulator = 0.00;
         }
 
         public double Add(double a, double b)
