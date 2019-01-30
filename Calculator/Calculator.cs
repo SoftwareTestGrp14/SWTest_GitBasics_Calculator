@@ -11,6 +11,10 @@ namespace Calculator
     public class Calculator
     {
 
+        public double Accumulator { get; private set; }
+
+
+
         public Calculator()
         {
             
@@ -48,6 +52,12 @@ namespace Calculator
         public double Power(double x, double exp)
         {
             return Math.Pow(x, exp);
+        }
+
+
+        public double Add(double addend)
+        {
+            return 
         }
     }
 }
