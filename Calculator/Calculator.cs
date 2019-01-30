@@ -13,7 +13,7 @@ namespace Calculator
 
         public Calculator()
         {
-
+            pølse;
         }
 
         public double Add(double a, double b)
