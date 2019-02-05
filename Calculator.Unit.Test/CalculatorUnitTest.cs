@@ -71,6 +71,15 @@ namespace Calculator.Unit.Test
             Assert.That(_uut.Power(x, exp), Is.EqualTo(result));
         }
 
+
+        [Test]
+        public void Accumulator_Add_resultSavedInAccumulator()
+        {
+            _uut.Add(2, 2);
+
+            Assert.That(_uut.Accumulator, Is.EqualTo(4));
+
+        }
         [TestCase(8, 2, 4)]
         [TestCase(10, 2, 5)]
         [TestCase(28, 0.5, 56)]
