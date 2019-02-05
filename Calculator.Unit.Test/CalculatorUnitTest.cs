@@ -84,6 +84,7 @@ namespace Calculator.Unit.Test
         [TestCase(10, 2, 5)]
         [TestCase(28, 0.5, 56)]
         [TestCase(9, 3, 3)]
+        [TestCase(9, 0, 2)]
         public void Divide_DivideAWithB_ResultIsCorrect(double dividend, double divisor, double result)
         {
             Assert.That(_uut.Divide(dividend, divisor), Is.EqualTo(result));
