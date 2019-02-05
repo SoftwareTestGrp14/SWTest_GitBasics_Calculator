@@ -12,7 +12,6 @@ namespace Calculator.Unit.Test
     {
         private Calculator _uut;
 
-
         [SetUp]
         public void Setup()
         {
@@ -22,7 +21,6 @@ namespace Calculator.Unit.Test
         [Test]
         public void Add_Add2And4_Returns6()
         {
-
             Assert.That(_uut.Add(2, 4), Is.EqualTo(6));
         }
 
@@ -33,7 +31,6 @@ namespace Calculator.Unit.Test
         [TestCase(3, 0, 3)]
         public void Add_AddPosAndNegNumbers_ResultIsCorrect(int a, int b, int result)
         {
-   
             Assert.That(_uut.Add(a, b), Is.EqualTo(result));
         }
 
@@ -44,8 +41,7 @@ namespace Calculator.Unit.Test
         {
             Assert.That(_uut.Subtract(a, b), Is.EqualTo(result));
         }
-
-
+        
         [TestCase(3, 2, 6)]
         [TestCase(-3, -2, 6)]
         [TestCase(-3, 2, -6)]
@@ -70,8 +66,7 @@ namespace Calculator.Unit.Test
         {
             Assert.That(_uut.Power(x, exp), Is.EqualTo(result));
         }
-
-
+        
         [Test]
         public void Accumulator_Add_resultSavedInAccumulator()
         {
@@ -97,6 +92,18 @@ namespace Calculator.Unit.Test
             Assert.That(_uut.Accumulator, Is.EqualTo(1));
         }
 
+        [TestCase(3, 2, 24)]
+        [TestCase(-3, -2, 24)]
+        [TestCase(3, -2, -24)]
+        public void Accumelator_Multiply_ContineueousMultiplicationCorrect(int a, int b, int result)
+        {
+            _uut.Multiply(2, 2);
+            _uut.Multiply(a);
+            _uut.Multiply(b);
+
+            Assert.That(_uut.Accumulator, Is.EqualTo(result));
+        }
+
         [TestCase(8, 2, 1)]
         [TestCase(-8, 2, -1)]
         [TestCase(-8, -2, 1)]
@@ -107,10 +114,8 @@ namespace Calculator.Unit.Test
             _uut.Divide(divisor);
 
             Assert.That(_uut.Accumulator, Is.EqualTo(result));
-
         }
-
-
+        
         [TestCase(8, 2, 4)]
         [TestCase(10, 2, 5)]
         [TestCase(28, 0.5, 56)]
@@ -124,6 +129,7 @@ namespace Calculator.Unit.Test
 
         [TestCase(9, 0)]
         [TestCase(19, 0)]
+        [TestCase(-20, 0)]
         public void Divide_DivideWithZero_ThrowException(double dividend, double divisor)
         {
             Assert.That(() => _uut.Divide(dividend, divisor), Throws.TypeOf<DivideByZeroException>());
@@ -137,6 +143,7 @@ namespace Calculator.Unit.Test
         public void Accumulator_Add_AddNumbers_ResultIsCorrect(int a, int b, int c, int result)
         {
             _uut.Add(a, b);
+
             Assert.That(_uut.Add(c), Is.EqualTo(result));
         }
 
@@ -148,6 +155,7 @@ namespace Calculator.Unit.Test
         public void Accumulator_Subtract_SubtractNumbers_ResultIsCorrect(int a, int b, int c, int result)
         {
             _uut.Subtract(a, b);
+
             Assert.That(_uut.Subtract(c), Is.EqualTo(result));
         }
 
@@ -158,11 +166,9 @@ namespace Calculator.Unit.Test
         public void Accumulator_Power_PowerNumbers_ResultIsCorrect(int a, int b, int c, int result)
         {
             _uut.Power(a, b);
+
             Assert.That(_uut.Power(c), Is.EqualTo(result));
         }
-
-
-
     }
 }
 
