@@ -80,10 +80,42 @@ namespace Calculator.Unit.Test
             Assert.That(_uut.Accumulator, Is.EqualTo(4));
 
         }
+
+        [Test]
+        public void Accumulator_Divide_resultSavedInAccumulator()
+        {
+            _uut.Divide(2, 2);
+
+            Assert.That(_uut.Accumulator, Is.EqualTo(1));
+        }
+
+        [Test]
+        public void Accumulator_Multiply_resultSavedInAccumulator()
+        {
+            _uut.Divide(2, 2);
+
+            Assert.That(_uut.Accumulator, Is.EqualTo(1));
+        }
+
+        [TestCase(8, 2, 1)]
+        [TestCase(-8, 2, -1)]
+        [TestCase(-8, -2, 1)]
+        public void Accumulator_Divide_ContinueousDivisionCorrect(double dividend, double divisor, double result)
+        {
+            _uut.Divide(dividend, divisor);
+            _uut.Divide(divisor);
+            _uut.Divide(divisor);
+
+            Assert.That(_uut.Accumulator, Is.EqualTo(result));
+
+        }
+
         [TestCase(8, 2, 4)]
         [TestCase(10, 2, 5)]
         [TestCase(28, 0.5, 56)]
         [TestCase(9, 3, 3)]
+        [TestCase(-9, -3, 3)]
+        [TestCase(-9, 3, -3)]
         public void Divide_DivideAWithB_ResultIsCorrect(double dividend, double divisor, double result)
         {
             Assert.That(_uut.Divide(dividend, divisor), Is.EqualTo(result));

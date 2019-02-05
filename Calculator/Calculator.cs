@@ -52,7 +52,7 @@ namespace Calculator
 
         public double Divide(double a)
         {
-            Accumulator /= a;
+            Accumulator = Accumulator / a;
             return Accumulator;
         }
 
@@ -86,7 +86,8 @@ namespace Calculator
                 throw new DivideByZeroException();
             }
 
-            return dividend / divisor;
+            Accumulator = dividend / divisor;
+            return Accumulator;
         }
     }
 }
