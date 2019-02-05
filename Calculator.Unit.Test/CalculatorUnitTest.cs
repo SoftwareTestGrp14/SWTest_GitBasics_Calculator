@@ -99,7 +99,7 @@ namespace Calculator.Unit.Test
 
         [TestCase(5, 2, 7, 14)]
         [TestCase(-3, 9, -4, 2)]
-        [TestCase(3, -14, 1, 10)]
+        [TestCase(3, -14, 1, -10)]
         [TestCase(99, 100, 10, 209)]
         [TestCase(3, 0, 0,3)]
         public void Accumulator_Add_AddNumbers_ResultIsCorrect(int a, int b, int c, int result)
@@ -107,6 +107,18 @@ namespace Calculator.Unit.Test
             _uut.Add(a, b);
             Assert.That(_uut.Add(c), Is.EqualTo(result));
         }
+
+        [TestCase(5, 2, 7, 0)]
+        [TestCase(-3, 9, -4, 10)]
+        [TestCase(3, -14, 1, -12)]
+        [TestCase(99, 100, 10, 189)]
+        [TestCase(3, 0, 6, -3)]
+        public void Accumulator_Subtract_SubtractNumbers_ResultIsCorrect(int a, int b, int c, int result)
+        {
+            _uut.Add(a, b);
+            Assert.That(_uut.Subtract(c), Is.EqualTo(result));
+        }
+
 
 
     }
