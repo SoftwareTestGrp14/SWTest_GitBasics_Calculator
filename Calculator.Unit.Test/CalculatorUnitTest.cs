@@ -108,15 +108,25 @@ namespace Calculator.Unit.Test
             Assert.That(_uut.Add(c), Is.EqualTo(result));
         }
 
-        [TestCase(5, 2, 7, 0)]
-        [TestCase(-3, 9, -4, 10)]
-        [TestCase(3, -14, 1, -12)]
-        [TestCase(99, 100, 10, 189)]
+        [TestCase(5, 2, 7, -4)]
+        [TestCase(-3, 9, -4, -8)]
+        [TestCase(3, -14, 1, 16)]
+        [TestCase(99, 100, 10, -11)]
         [TestCase(3, 0, 6, -3)]
         public void Accumulator_Subtract_SubtractNumbers_ResultIsCorrect(int a, int b, int c, int result)
         {
-            _uut.Add(a, b);
+            _uut.Subtract(a, b);
             Assert.That(_uut.Subtract(c), Is.EqualTo(result));
+        }
+
+        [TestCase(2, 2, 2, 16)]
+        [TestCase(-3, 2, 4, 6561)]
+        [TestCase(3, 3, 1, 27)]
+        [TestCase(43, 2, 0, 1)]
+        public void Accumulator_Power_PowerNumbers_ResultIsCorrect(int a, int b, int c, int result)
+        {
+            _uut.Power(a, b);
+            Assert.That(_uut.Power(c), Is.EqualTo(result));
         }
 
 
