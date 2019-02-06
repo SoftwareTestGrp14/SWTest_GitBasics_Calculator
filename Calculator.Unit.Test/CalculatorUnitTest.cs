@@ -175,6 +175,81 @@ namespace Calculator.Unit.Test
 
             Assert.That(_uut.Power(c), Is.EqualTo(result));
         }
+
+        [TestCase(2, 2)]
+        [TestCase(-2, -3)]
+        [TestCase(-5, -5)]
+        [TestCase(3, 43)]
+
+        public void Clear_ClearAfterAdding_AccumulatorIsZero(int a, int b)
+        {
+            _uut.Add(a, b);
+
+            _uut.Clear();
+
+            Assert.That(_uut.Accumulator, Is.EqualTo(0));
+
+        }
+
+        [TestCase(2, 2)]
+        [TestCase(-2, -3)]
+        [TestCase(-5, -5)]
+        [TestCase(3, 43)]
+
+        public void Clear_ClearAfterSubtracting_AccumulatorIsZero(int a, int b)
+        {
+            _uut.Subtract(a, b);
+
+            _uut.Clear();
+
+            Assert.That(_uut.Accumulator, Is.EqualTo(0));
+
+        }
+
+        [TestCase(2, 2)]
+        [TestCase(-2, -3)]
+        [TestCase(-5, -5)]
+        [TestCase(3, 43)]
+
+        public void Clear_ClearAfterMultiplying_AccumulatorIsZero(int a, int b)
+        {
+            _uut.Multiply(a, b);
+
+            _uut.Clear();
+
+            Assert.That(_uut.Accumulator, Is.EqualTo(0));
+
+        }
+
+        [TestCase(2, 2)]
+        [TestCase(-2, -3)]
+        [TestCase(-5, -5)]
+        [TestCase(3, 43)]
+
+        public void Clear_ClearAfterDividing_AccumulatorIsZero(int a, int b)
+        {
+            _uut.Divide(a, b);
+
+            _uut.Clear();
+
+            Assert.That(_uut.Accumulator, Is.EqualTo(0));
+
+        }
+
+        [TestCase(2, 2)]
+        [TestCase(-2, -3)]
+        [TestCase(-5, -5)]
+        [TestCase(3, 43)]
+
+        public void Clear_ClearAfterPower_AccumulatorIsZero(int a, int b)
+        {
+            _uut.Power(a, b);
+
+            _uut.Clear();
+
+            Assert.That(_uut.Accumulator, Is.EqualTo(0));
+
+        }
     }
 }
 
