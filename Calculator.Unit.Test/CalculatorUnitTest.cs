@@ -67,35 +67,41 @@ namespace Calculator.Unit.Test
             Assert.That(_uut.Power(x, exp), Is.EqualTo(result));
         }
         
-        [Test]
-        public void Accumulator_Add_resultSavedInAccumulator()
+        [TestCase(2,2,4)]
+        [TestCase(49,13,62)]
+        [TestCase(8,10,18)]
+        public void Accumulator_Add_resultSavedInAccumulator(int a, int b, int result)
         {
-            _uut.Add(2, 2);
+            _uut.Add(a,b);
 
-            Assert.That(_uut.Accumulator, Is.EqualTo(4));
+            Assert.That(_uut.Accumulator, Is.EqualTo(result));
 
         }
 
-        [Test]
-        public void Accumulator_Divide_resultSavedInAccumulator()
+        [TestCase(40,2,20)]
+        [TestCase(30,3,10)]
+        [TestCase(69,3,23)]
+        public void Accumulator_Divide_resultSavedInAccumulator(int a, int b, int result)
         {
-            _uut.Divide(2, 2);
+            _uut.Divide(a, b);
 
-            Assert.That(_uut.Accumulator, Is.EqualTo(1));
+            Assert.That(_uut.Accumulator, Is.EqualTo(result));
         }
 
-        [Test]
-        public void Accumulator_Multiply_resultSavedInAccumulator()
+        [TestCase(10,10,100)]
+        [TestCase(26,2,52)]
+        [TestCase(4548,348,1582704)]
+        public void Accumulator_Multiply_resultSavedInAccumulator(int a, int b, int result)
         {
-            _uut.Divide(2, 2);
+            _uut.Multiply(a, b);
 
-            Assert.That(_uut.Accumulator, Is.EqualTo(1));
+            Assert.That(_uut.Accumulator, Is.EqualTo(result));
         }
 
         [TestCase(3, 2, 24)]
         [TestCase(-3, -2, 24)]
         [TestCase(3, -2, -24)]
-        public void Accumelator_Multiply_ContineueousMultiplicationCorrect(int a, int b, int result)
+        public void Accumulator_Multiply_ContineueousMultiplicationCorrect(int a, int b, int result)
         {
             _uut.Multiply(2, 2);
             _uut.Multiply(a);
