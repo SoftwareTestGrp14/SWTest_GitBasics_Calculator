@@ -211,6 +211,7 @@ namespace Calculator.Unit.Test
         [TestCase(-2, -3)]
         [TestCase(-5, -5)]
         [TestCase(3, 43)]
+        [TestCase(6,3)]
 
         public void Clear_ClearAfterMultiplying_AccumulatorIsZero(int a, int b)
         {
